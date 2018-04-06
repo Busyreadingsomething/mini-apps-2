@@ -24,3 +24,24 @@ const populateMines = (len) => {
 
   return board;
 };
+
+const countMines = (board, row, col) => {
+  let count = 0;
+
+};
+
+const setNumberSpace = (len) => {
+  const board = populateMines(len);
+
+  for (let row = 0; row < len; row += 1) {
+    for (let col = 0; col < len; col += 1) {
+      if (board[row][col] === 'X') {
+        continue;
+      }
+      const mines = countMines(board, row, col);
+      if (mines) {
+        board[row][col] = mines;
+      }
+    }
+  }
+};
