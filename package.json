@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev1": "webpack --watch",
-    "seed1": "mongoimport --db coinDB --collection coins --file challenge_1/mockData/BTC.json --numInsertionWorkers 4 --jsonArray"
+    "seed1": "mongoimport --db coinDB --collection coins --file challenge_1/mockData/BTC.json --numInsertionWorkers 4 --jsonArray",
+    "server2": "nodemon challenge_2/server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,8 @@
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
     "chart.js": "^2.7.2",
     "express": "^4.16.3",
     "moment": "^2.22.0",
