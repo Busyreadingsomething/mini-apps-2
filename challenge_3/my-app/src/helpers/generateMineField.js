@@ -63,6 +63,8 @@ const setNumberSpace = (len) => {
       }
     }
   }
+
+  return board;
 };
 
 const generateMineField = (len) => {
