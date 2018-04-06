@@ -1,7 +1,7 @@
 const generateEmptyField = (len) => {
   const board = [];
   for (let i = 0; i < len; i += 1) {
-    const row = Array(10).fill('');
+    const row = Array(len).fill('');
     const spacedRows = row.map(() => ({
       value: '',
       revealed: false,
@@ -28,7 +28,6 @@ const populateMines = (len) => {
 };
 
 const countMines = (board, row, col) => {
-  debugger;
   const endRow = row + 1;
   const endCol = col + 1;
   let count = 0;
@@ -60,6 +59,15 @@ const setNumberSpace = (len) => {
       }
     }
   }
+};
+
+const generateMineField = (len) => {
+  const board = setNumberSpace(len);
+  const safeSpaces = (len ** 2) - len;
+  return {
+    board,
+    safeSpaces,
+  };
 };
 
 export default setNumberSpace;
