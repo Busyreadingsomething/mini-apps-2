@@ -1,2 +1,6 @@
-export const CREATE_BOARD = 'CREATE_BOARD';
-export const REVEAL_SPACE = 'REVEAL_SPACE';
+const actionTypes = {
+  CREATE_BOARD: 'CREATE_BOARD',
+  REVEAL_SPACE: 'REVEAL_SPACE',
+};
+
+export default actionTypes;
