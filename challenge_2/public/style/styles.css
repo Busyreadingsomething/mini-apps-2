@@ -1,0 +1,18 @@
+.form-container, .summary-container, .account-container,
+.address-container, #app {
+  display: flex;
+  flex-flow: column;
+}
+
+.form-container, .account-container, .address-container, #app {
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-container, .account-container, .address-container {
+  width: 100%;
+}
+
+.box {
+  width: 300px;
+}
