@@ -1,11 +1,15 @@
+class Square {
+  constructor() {
+    this.value = '';
+    this.revealed = false;
+  }
+}
+
 const generateEmptyField = (len) => {
   const board = [];
   for (let i = 0; i < len; i += 1) {
     const row = Array(len).fill('');
-    const spacedRows = row.map(() => ({
-      value: '',
-      revealed: false,
-    }));
+    const spacedRows = row.map(() => new Square());
     board.push(spacedRows);
   }
   return board;
@@ -50,7 +54,7 @@ const setNumberSpace = (len) => {
 
   for (let row = 0; row < len; row += 1) {
     for (let col = 0; col < len; col += 1) {
-      if (board[row][col] === 'X') {
+      if (board[row][col].value === 'X') {
         continue;
       }
       const mines = countMines(board, row, col);
@@ -70,4 +74,4 @@ const generateMineField = (len) => {
   };
 };
 
-export default setNumberSpace;
+export default generateMineField;
