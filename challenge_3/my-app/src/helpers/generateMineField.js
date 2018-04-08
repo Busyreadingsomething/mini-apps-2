@@ -17,7 +17,7 @@ const generateEmptyField = (len) => {
 
 const populateMines = (len) => {
   const board = generateEmptyField(len);
-  let mineCount = len;
+  let mineCount = len + Math.floor(len / 3);
   while (mineCount) {
     const row = Math.floor(Math.random() * len);
     const col = Math.floor(Math.random() * len);
@@ -69,11 +69,20 @@ const setNumberSpace = (len) => {
 
 const generateMineField = (len) => {
   const board = setNumberSpace(len);
-  const safeSpaces = (len ** 2) - len;
+  const safeSpaces = (len ** 2) - (len + Math.floor(len / 3));
   return {
+    loss: false,
+    gameOver: false,
     board,
     safeSpaces,
   };
 };
 
-export default generateMineField;
+export default {
+  generateMineField,
+  Square,
+  generateEmptyField,
+  populateMines,
+  countMines,
+  setNumberSpace,
+};
