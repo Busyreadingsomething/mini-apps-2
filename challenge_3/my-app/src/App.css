@@ -26,3 +26,52 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.board-container, .row, .square, .game-container {
+  display: flex;
+}
+
+.game-container {
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.board-container {
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.message {
+  font-size: 20px;
+  margin-top: 2%;
+}
+
+.square {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0.5px;
+  border-radius: 3px;
+}
+.square:hover {
+  background-color: blue;
+}
+
+#square1 {
+  color: blue;
+}
+
+#square2 {
+  color: green;
+}
+
+#square3 {
+  color: red
+}

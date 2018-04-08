@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import BoardRowView from './components/BoardRowView';
+import BoardContainer from './components/containers/BoardContainer';
+import MessageContainer from './components/containers/MessageContainer';
 
 const App = props => (
   <div className="App">
@@ -9,10 +10,10 @@ const App = props => (
       <img src={logo} className="App-logo" alt="logo" />
       <h1 className="App-title">Welcome to React</h1>
     </header>
-    <BoardRowView />
-    <p className="App-intro">
-      To get started, edit <code>src/App.js</code> and save to reload.
-    </p>
+    <div className="game-container">
+      <BoardContainer />
+      <MessageContainer />
+    </div>
   </div>
 );
 
