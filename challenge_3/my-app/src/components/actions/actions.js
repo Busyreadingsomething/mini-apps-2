@@ -1,17 +1,17 @@
-import generateMineField from '../../helpers/generateMineField';
-import { CREATE_BOARD, REVEAL_SPACE } from '../actionTypes/actionTypes';
+import genField from '../../helpers/generateMineField';
+import actionTypes from '../actionTypes/actionTypes';
 
 export const createNewBoard = (len = 10) => {
-  const { board, safeSpaces } = generateMineField(len);
+  const { board, safeSpaces } = genField.generateMineField(len);
   return {
-    type: CREATE_BOARD,
+    type: actionTypes.CREATE_BOARD,
     board,
     safeSpaces,
   };
 };
 
 export const revealSpace = (row, col) => ({
-  type: REVEAL_SPACE,
+  type: actionTypes.REVEAL_SPACE,
   row,
   col,
 });
