@@ -1,24 +1,33 @@
+import _ from 'lodash';
 import actionTypes from '../actionTypes/actionTypes';
-import generateMineField from '../../helpers/generateMineField';
+import genField from '../../helpers/generateMineField';
+import searchWhiteSpace from '../../helpers/searchWhiteSpace';
+import calculateWin from '../../helpers/calculateWin';
 
-const initialState = generateMineField(10);
+const initialState = genField.generateMineField(10);
 
-const mineSweeperApp = (state = initialState, action) => {
-  let { board, safeSpaces } = Object.assign({}, state);
-
-  switch (action.type) {
-    case actionTypes.CREATE_BOARD:
-      return generateMineField();
-    case actionTypes.REVEAL_SPACE:
-      board[action.row][action.col].revealed = true;
-      safeSpaces -= 1;
-      return {
-        board,
-        safeSpaces,
-      };
-    default:
-      return state;
+const mineSweeperApp = (state = initialState, { type, row, col }) => {
+  if (type === actionTypes.CREATE_BOARD) {
+    return genField.generateMineField();
+  } else if (state.gameOver) {
+    return state;
+  } else if (type === actionTypes.REVEAL_SPACE) {
+    const clonedState = _.cloneDeep(state);
+    const traversedBoard = searchWhiteSpace(clonedState.board, row, col);
+    const {
+      board,
+      count,
+      loss,
+      gameOver,
+    } = calculateWin(traversedBoard, state.safeSpaces);
+    return {
+      board,
+      loss,
+      gameOver,
+      safeSpaces: clonedState.safeSpaces - count,
+    };
   }
+  return state;
 };
 
 export default mineSweeperApp;
